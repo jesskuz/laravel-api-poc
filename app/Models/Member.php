@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
+
     use HasFactory;
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'team_id',
+    ];
 
     public function projects()
     {

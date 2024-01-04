@@ -9,9 +9,13 @@ class Team extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function members()
     {
         return $this->hasMany(Member::class, 'team_id', 'id');
     }
-
 }
