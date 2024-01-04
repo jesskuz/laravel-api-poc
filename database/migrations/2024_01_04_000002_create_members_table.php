@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('city')->nullable();
-            $table->char('state', 2)->nullable();
+            $table->char('state', 3)->nullable();
             $table->string('country')->nullable();
             $table->timestamps();
 

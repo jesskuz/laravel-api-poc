@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'member_id' => fn () => Member::all()->random(),
+            'name' => ucfirst(fake()->lexify(str_repeat('?', 50))),
         ];
     }
 }

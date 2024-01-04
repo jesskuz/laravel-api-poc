@@ -17,7 +17,7 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => ucfirst(fake()->lexify(str_repeat('?', 20))),
         ];
     }
 }
