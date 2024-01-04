@@ -13,6 +13,9 @@ class TeamController extends Controller
      */
     public function index()
     {
+
+        $teams = Team::with('members')->get();
+        return response()->json(['teams' => $teams]);
         //
     }
 
@@ -21,7 +24,6 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,7 +39,8 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        $team->load('members');
+        return response()->json($team);
     }
 
     /**
