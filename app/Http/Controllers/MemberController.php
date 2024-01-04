@@ -13,7 +13,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $members = Member::all();
+        return response()->json(['members' => $members]);
     }
 
     /**
@@ -37,7 +38,9 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+
+        $member->load('team');
+        return response()->json($member);
     }
 
     /**
