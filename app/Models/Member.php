@@ -11,11 +11,11 @@ class Member extends Model
 
     public function projects()
     {
-        return $this->hasMany('App\Models\Project');
+        return $this->hasMany(Project::class, 'member_id', 'id');
     }
 
     public function team()
     {
-        return $this->belongsTo('App\Models\Team');
+        return $this->belongsTo(Team::class, 'team_id');
     }
 }

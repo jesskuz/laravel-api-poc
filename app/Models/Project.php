@@ -11,6 +11,6 @@ class Project extends Model
 
     public function member()
     {
-        return $this->hasOne('App\Models\Member');
+        return $this->hasOne(Member::class, 'member_id', 'id');
     }
 }
