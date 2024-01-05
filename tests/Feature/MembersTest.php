@@ -2,55 +2,60 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-
-use function Pest\Laravel\{get};
-use function Pest\Laravel\{post};
-use function Pest\Laravel\{put};
-use function Pest\Laravel\{delete};
-use function PHPUnit\Framework\assertTrue;
-
 use App\Models\Member;
 
 test('basic members list', function () {
 
     $response = $this->getJson('/api/members');
     $response->assertStatus(200);
+    $this->assertCount(30, Member::all());
 });
 
 
 it('should create a member', function () {
 
-
     $member = Member::factory()->raw();
 
     $response = $this->postJson('/api/members', $member);
 
+    $response->assertStatus(200)
+        ->assertJson(['status' => 'member created']);
 
+    $this->assertDatabaseHas('members', $member);
+});
 
-    $response->assertStatus(200)->assertJson(['status' => 'member created.']);
-    assertDatabaseHas('members', $member);
+it('should fail if the first and last name are not present', function () {
+
+    $member = Member::factory()->raw();
+
+    unset($member['first_name']);
+    unset($member['last_name']);
+
+    $response = $this->postJson('/api/members', $member);
+
+    $response->assertStatus(422);
 });
 
 it('should update a member', function () {
 
+    $member = Member::factory()->create();
 
-    $member = Member::factory()->raw();
+    $update = ['first_name' => 'Jesse'];
 
-    $response = $this->postJson('/api/members', $member);
+    $response = $this->putJson('/api/members/' . $member->id, $update);
 
-    $response->assertStatus(200)->assertJson(['status' => 'member created.']);
-    assertDatabaseHas('members', $member);
+    $response->assertStatus(201)
+        ->assertJson(['status' => 'member updated']);
+    $this->assertDatabaseHas('members', $update);
 });
 
 it('should delete a member', function () {
 
+    $member = Member::factory()->create();
 
-    $member = Member::factory()->raw();
 
-    $response = $this->postJson('/api/members', $member);
+    $response = $this->deleteJson('/api/members/' . $member->id);
 
-    $response->assertStatus(200)->assertJson(['status' => 'member created.']);
-    assertDatabaseHas('members', $member);
+    $response->assertStatus(204);
+    $this->assertCount(30, Member::all());
 });
-
