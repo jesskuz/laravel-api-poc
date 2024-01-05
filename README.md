@@ -1,5 +1,5 @@
 ### Project
-A simple team-to-member-to-project tracking API.
+A simple team, member, and project tracking API.
 
 
 
@@ -83,7 +83,7 @@ param -
     int `member_id`
 ```
 
-####Notes####
+#### Notes
 
 
 ```
