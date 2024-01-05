@@ -6,7 +6,7 @@ use App\Models\Member;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 
 class ProjectSeeder extends Seeder
 {
@@ -15,10 +15,12 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('projects')->delete();
+
         Project::factory()
             ->has(Member::factory()
                 ->count(5))
-            ->count(10)
+            ->count(5)
             ->create();
     }
 }
