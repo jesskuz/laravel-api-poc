@@ -2,6 +2,10 @@
 A simple team, member, and project tracking API.
 
 
+[Data Spec](#entities)
+[Endpoints](#endpoints)
+[Unit Tests](#testing)
+
 _Modifications have been made in the following files/folders_:
 
 ```
@@ -15,13 +19,10 @@ _Modifications have been made in the following files/folders_:
 
 ```
 
-
 ```
 prep: 
 artisan migrate:fresh --seed
 ```
-
-[Tests have been added below](#testing)
 
 ### Entities
 
@@ -37,7 +38,6 @@ artisan migrate:fresh --seed
 
 **Project(s)**
 - Name (required)
-
 
 
 ### Endpoints
