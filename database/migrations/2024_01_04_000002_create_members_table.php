@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('team_id');
+            $table->unsignedBigInteger('team_id')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('city')->nullable();
@@ -23,7 +23,8 @@ return new class extends Migration
 
             $table->foreign('team_id')
                 ->references('id')
-                ->on('teams');
+                ->on('teams')
+                ->onDelete('set null');
         });
     }
 

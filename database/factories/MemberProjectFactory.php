@@ -3,12 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\Member;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ProjectFactory extends Factory
+class MemberProjectFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +19,8 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => ucfirst(fake()->lexify(str_repeat('?', 50))),
+            'member_id' => fn () => Member::all()->random(),
+            'project_id' => fn () => Project::all()->random(),
         ];
     }
 }
