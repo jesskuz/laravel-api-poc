@@ -89,12 +89,13 @@ param -
 Applicable modifications are made primarily in the following folders:
 
 ```
+/routes/api.php
 /app/Models
 /app/Http
 /database/factories
 /database/migrations
 /database/seeders
-/routes/api.php
+/tests
 
 ```
 
