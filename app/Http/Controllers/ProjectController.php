@@ -59,12 +59,10 @@ class ProjectController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'member_id' => 'required|numeric',
         ]);
 
         $project = new Project();
         $project->name = $request->name;
-        $project->member_id = $request->member_id;
 
         $project->save();
 
@@ -87,9 +85,11 @@ class ProjectController extends Controller
             'name' => 'required|string',
         ]);
 
+        $project->name = $request->name;
+
         $project->save();
 
-        return response()->json(['status' => 'project updated']);
+        return response()->json(['status' => 'project updated'], 201);
     }
 
     /**
@@ -114,7 +114,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'member added to project']);
+        return response()->json(['status' => 'member added to project'], 201);
         //
     }
 
@@ -140,7 +140,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'member removed from project']);
+        return response()->json(['status' => 'member removed from project'], 201);
         //
     }
 

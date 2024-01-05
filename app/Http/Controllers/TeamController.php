@@ -69,7 +69,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return response()->json(['status' => 'team created.']);
+        return response()->json(['status' => 'team created']);
 
         //
     }
@@ -93,7 +93,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return response()->json(['status' => 'team updated.']);
+        return response()->json(['status' => 'team updated'], 201);
         //
     }
 
