@@ -21,10 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::put('/members/{member}/update-team', [MemberController::class, 'updateTeam']);
 // Get the members of a specific team
 Route::get('/teams/{team}/get-members', [TeamController::class, 'getMembers']);
-// Add a member to a project
-Route::put('/projects/{project}/add-member', [ProjectController::class, 'addMember']);
 // Get the members of a specific project
 Route::get('/projects/{project}/get-members', [ProjectController::class, 'getMembers']);
+// Add a member to a project
+Route::put('/projects/{project}/add-member', [ProjectController::class, 'addMember']);
+
+// Remove a member from project
+Route::put('/projects/{project}/remove-member', [ProjectController::class, 'removeMember']);
 
 Route::apiResource('teams', TeamController::class);
 Route::apiResource('members', MemberController::class);
