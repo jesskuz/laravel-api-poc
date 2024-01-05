@@ -105,7 +105,7 @@ param -
 
 ### Testing
 
-Tests are using Pest
+- tests utilize the Pest library  
 
 ```
 run:
