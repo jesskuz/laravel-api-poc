@@ -60,7 +60,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return response()->json(['status' => 'member ' . $member->getKey() . ' created.']);
+        return response()->json(['status' => 'member created']);
         //
     }
 
@@ -86,7 +86,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return response()->json(['status' => 'member ' . $member->getKey() . ' updated.']);
+        return response()->json(['status' => 'member updated']);
         //
     }
 
@@ -108,7 +108,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return response()->json(['status' => 'member ' . $member->getKey() . ' updated.']);
+        return response()->json(['status' => 'member updated']);
         //
     }
 

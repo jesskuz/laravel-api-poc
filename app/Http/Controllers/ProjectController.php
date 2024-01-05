@@ -68,7 +68,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'project ' . $project->getKey() . ' created']);
+        return response()->json(['status' => 'project created']);
     }
 
     /**
@@ -89,7 +89,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'project ' . $project->getKey() . ' updated']);
+        return response()->json(['status' => 'project updated']);
     }
 
     /**
@@ -114,7 +114,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'member ' . $member_id . ' added to project ' . $project->getKey()]);
+        return response()->json(['status' => 'member added to project']);
         //
     }
 
@@ -140,7 +140,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return response()->json(['status' => 'member ' . $member_id . ' removed from project ' . $project->getKey()]);
+        return response()->json(['status' => 'member removed from project']);
         //
     }
 
