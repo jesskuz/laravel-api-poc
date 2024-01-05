@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Member;
+use App\Models\Team;
 
 test('basic members list', function () {
 
@@ -46,6 +47,24 @@ it('should update a member', function () {
 
     $response->assertStatus(201)
         ->assertJson(['status' => 'member updated']);
+    $this->assertDatabaseHas('members', $update);
+});
+
+
+
+it('should update the team of a member', function () {
+
+
+    $team = Team::factory()->create();
+
+    $member = Member::factory()->create();
+
+    $update = ['team_id' => $team->id];
+
+    $response = $this->putJson('/api/members/' . $member->id . '/update-team', $update);
+
+    $response->assertStatus(201)
+        ->assertJson(['status' => 'member team updated']);
     $this->assertDatabaseHas('members', $update);
 });
 
