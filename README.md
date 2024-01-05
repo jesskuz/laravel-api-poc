@@ -2,7 +2,7 @@
 A simple team, member, and project tracking API.
 
 
-_Applicable modifications are made primarily in the following folders_:
+_Modifications have been made in the following files/folders_:
 
 ```
 /routes/api.php
@@ -15,10 +15,13 @@ _Applicable modifications are made primarily in the following folders_:
 
 ```
 
+
 ```
 prep: 
 artisan migrate:fresh --seed
 ```
+
+[Tests have been added below](#testing)
 
 ### Entities
 
@@ -100,7 +103,7 @@ param -
     int `member_id`
 ```
 
-#### Testing 
+#### [Testing]
 
 Tests are using Pest
 
