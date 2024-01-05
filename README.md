@@ -82,6 +82,11 @@ PUT /api/projects/{id}/remove-member
 param - 
     int `member_id`
 ```
+#### Unit Tests
+
+A suite of 20 Pest-based unit tests has been added ...
+
+![image](https://github.com/jesskuz/laravel-projects-api-poc/assets/2702323/5351fa5b-7270-4efa-b0ae-9262bba201b7)
 
 #### Notes
 
