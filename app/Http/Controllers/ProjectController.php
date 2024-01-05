@@ -9,58 +9,153 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all projects.
+     *
+     * @return \Illuminate\Http\response $response
      */
     public function index()
     {
+        $projects = Project::all();
+        return response()->json($projects);
         //
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreProjectRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Return the project record.
+     *
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
      */
     public function show(Project $project)
     {
+
+        return response()->json($project);
         //
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Return members assigned to a project.
+     *
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
      */
-    public function edit(Project $project)
+    public function getMembers(Project $project)
     {
-        //
+        $members = $project->members()->get();
+        return response()->json($members);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Create a new project record.
+     *
+     * @param \App\Http\Requests\UpdateProjectRequest $request
+     *
+     * @return \Illuminate\Http\response $response
      */
+    public function store(StoreProjectRequest $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'member_id' => 'required|numeric',
+        ]);
+
+        $project = new Project();
+        $project->name = $request->name;
+        $project->member_id = $request->member_id;
+
+        $project->save();
+
+        return response()->json(['status' => 'project ' . $project->getKey() . ' created']);
+    }
+
+    /**
+     * Update the project record.
+     *
+     * @param \App\Http\Requests\UpdateProjectRequest $request
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
+     */
+
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
+        $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        $project->save();
+
+        return response()->json(['status' => 'project ' . $project->getKey() . ' updated']);
+    }
+
+    /**
+     * Add a member to the project.
+     *
+     * @param \App\Http\Requests\UpdateProjectRequest $request
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
+     */
+    public function addMember(UpdateProjectRequest $request, Project $project)
+    {
+
+        $request->validate([
+            'member_id' => 'required|numeric',
+        ]);
+
+
+        $member_id = $request->member_id;
+
+        $project->members()->syncWithoutDetaching($member_id);
+
+        $project->save();
+
+        return response()->json(['status' => 'member ' . $member_id . ' added to project ' . $project->getKey()]);
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove member from project.
+     *
+     * @param \App\Http\Requests\UpdateProjectRequest $request
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
+     */
+    public function removeMember(UpdateProjectRequest $request, Project $project)
+    {
+
+        $request->validate([
+            'member_id' => 'required|numeric',
+        ]);
+
+
+        $member_id = $request->member_id;
+
+        $project->members()->detach($member_id);
+
+        $project->save();
+
+        return response()->json(['status' => 'member ' . $member_id . ' removed from project ' . $project->getKey()]);
+        //
+    }
+
+    /**
+     * Delete the project record.
+     *
+     * @param \App\Models\Project $project
+     *
+     * @return \Illuminate\Http\response $response
      */
     public function destroy(Project $project)
     {
-        //
+
+        $project->delete();
+
+        return response()->json(null, 204);
     }
 }
