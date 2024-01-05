@@ -2,6 +2,23 @@
 A simple team, member, and project tracking API.
 
 
+_Applicable modifications are made primarily in the following folders_:
+
+```
+/routes/api.php
+/app/Models
+/app/Http
+/database/factories
+/database/migrations
+/database/seeders
+/tests
+
+```
+
+```
+prep: 
+artisan migrate:fresh --seed
+```
 
 ### Entities
 
@@ -82,30 +99,19 @@ PUT /api/projects/{id}/remove-member
 param - 
     int `member_id`
 ```
-#### Unit Tests
 
-A suite of 20 Pest-based unit tests has been added ...
+#### Testing 
 
+Tests are using Pest
+
+```
+run:
+artisan test
+```
+
+Results should be:
 ![image](https://github.com/jesskuz/laravel-projects-api-poc/assets/2702323/5351fa5b-7270-4efa-b0ae-9262bba201b7)
 
-#### Notes
 
 
-Applicable modifications are made primarily in the following folders:
-
-```
-/routes/api.php
-/app/Models
-/app/Http
-/database/factories
-/database/migrations
-/database/seeders
-/tests
-
-```
-
-```
-prep: 
-artisan migrate:fresh --seed
-```
 
