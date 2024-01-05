@@ -108,7 +108,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        return response()->json(['status' => 'member updated'], 201);
+        return response()->json(['status' => 'member team updated'], 201);
         //
     }
 
