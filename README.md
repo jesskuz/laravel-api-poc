@@ -26,8 +26,8 @@ A simple team-to-member-to-project tracking API.
 ```
 GET /api/teams/
 GET /api/teams/{id}
-POST /api/teams/{id}
-PUT /api/teams/{id}
+POST /api/teams/{id} (include above field values)
+PUT /api/teams/{id} (update any of the above field values)
 DELETE /api/teams/{id}
 ``````
 
@@ -35,8 +35,8 @@ DELETE /api/teams/{id}
 ```
 GET /api/members/
 GET /api/members/{id}
-POST /api/members/{id}
-PUT /api/members/{id}
+POST /api/members/{id} (include above field values)
+PUT /api/members/{id} (update any of the above field values)
 DELETE /api/members/{id}
 ```
 
@@ -44,8 +44,8 @@ DELETE /api/members/{id}
 ```
 GET /api/projects/
 GET /api/projects/{id}
-POST /api/projects/{id}
-PUT /api/projects/{id}
+POST /api/projects/{id} (include above field values)
+PUT /api/projects/{id} (update any of the above field values)
 DELETE /api/projects/{id}
 ```
 
