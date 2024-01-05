@@ -86,6 +86,18 @@ param -
 #### Notes
 
 
+Applicable modifications are made primarily in the following folders:
+
+```
+/app/Models
+/app/Http
+/database/factories
+/database/migrations
+/database/seeders
+/routes/api.php
+
+```
+
 ```
 prep: 
 artisan migrate:fresh --seed
