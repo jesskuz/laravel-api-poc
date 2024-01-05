@@ -3,7 +3,9 @@ A simple team, member, and project tracking API.
 
 
 [Data Spec](#entities)
+
 [Endpoints](#endpoints)
+
 [Unit Tests](#testing)
 
 _Modifications have been made in the following files/folders_:
