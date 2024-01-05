@@ -12,11 +12,10 @@ class Project extends Model
     protected $hidden = [
         'created_at',
         'updated_at',
-        'member_id',
     ];
 
-    public function member()
+    public function members()
     {
-        return $this->hasOne(Member::class, 'member_id', 'id');
+        return $this->belongsToMany(Member::class);
     }
 }
