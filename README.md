@@ -103,7 +103,7 @@ param -
     int `member_id`
 ```
 
-#### [Testing]
+### Testing
 
 Tests are using Pest
 
@@ -113,6 +113,7 @@ artisan test
 ```
 
 Results should be:
+
 ![image](https://github.com/jesskuz/laravel-projects-api-poc/assets/2702323/5351fa5b-7270-4efa-b0ae-9262bba201b7)
 
 
