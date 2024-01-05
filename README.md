@@ -22,7 +22,7 @@ A simple team, member, and project tracking API.
 
 ### Endpoints
 
-✅ API Endpoints to: Create/Update/Delete/Index/Show teams
+✅ Create/Update/Delete/Index/Show teams
 ```
 GET /api/teams/
 GET /api/teams/{id}
@@ -31,7 +31,7 @@ PUT /api/teams/{id} (update any of the above field values)
 DELETE /api/teams/{id}
 ``````
 
-✅ API Endpoints to: Create/Update/Delete/Index/Show members
+✅ Create/Update/Delete/Index/Show members
 ```
 GET /api/members/
 GET /api/members/{id}
@@ -40,7 +40,7 @@ PUT /api/members/{id} (update any of the above field values)
 DELETE /api/members/{id}
 ```
 
-✅ API Endpoints to: Create/Update/Delete/Index/Show projects
+✅ Create/Update/Delete/Index/Show projects
 ```
 GET /api/projects/
 GET /api/projects/{id}
@@ -49,7 +49,7 @@ PUT /api/projects/{id} (update any of the above field values)
 DELETE /api/projects/{id}
 ```
 
-✅ API Endpoint to: Update the team of a member
+✅ Update the team of a member
 ```
 PUT /api/members/{id}/update-team
 
@@ -57,17 +57,17 @@ param -
     int `team_id`
 ```
 
-✅ API Endpoint to: Get the members of a specific team
+✅ Get the members of a specific team
 ```
 GET /api/teams/{id}/get-members
 ```
 
-✅ API Endpoint to: Get the members of a specific project
+✅ Get the members of a specific project
 ```
 GET /api/projects/{id}/get-members
 ```
 
-✅ API Endpoint to: Add a member to a project
+✅ Add a member to a project
 ```
 PUT /api/projects/{id}/add-member
 
@@ -75,7 +75,7 @@ param -
     int `member_id`
 ```
 
-✅ API Endpoint to: Remove a member from a project
+✅ Remove a member from a project
 ```
 PUT /api/projects/{id}/remove-member
 
