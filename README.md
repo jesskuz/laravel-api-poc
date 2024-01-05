@@ -2,13 +2,11 @@
 A simple team, member, and project tracking API.
 
 
-[Data Spec](#entities)
+[Data Spec](#entities)  
+[Endpoints](#endpoints)  
+[Unit Tests](#testing)  
 
-[Endpoints](#endpoints)
-
-[Unit Tests](#testing)
-
-_Modifications have been made in the following files/folders_:
+_Modifications have been made in the following files/folders_:  
 
 ```
 /routes/api.php
@@ -114,8 +112,7 @@ run:
 artisan test
 ```
 
-Results should be:
-
+Results should be  
 ![image](https://github.com/jesskuz/laravel-projects-api-poc/assets/2702323/5351fa5b-7270-4efa-b0ae-9262bba201b7)
 
 
